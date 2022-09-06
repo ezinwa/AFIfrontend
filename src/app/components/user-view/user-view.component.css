@@ -1,0 +1,11 @@
+.disp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}

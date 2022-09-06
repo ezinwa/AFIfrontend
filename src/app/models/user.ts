@@ -9,5 +9,5 @@ export class User {
   phoneNumber: string = "";
   city: string = "";
   street: string = "";
-  role: string = "";
+  role: string = "SUBSCRIBER";
 }

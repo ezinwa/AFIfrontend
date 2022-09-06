@@ -3,19 +3,20 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-user-view',
+  templateUrl: './user-view.component.html',
+  styleUrls: ['./user-view.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class UserViewComponent implements OnInit {
   users: Array<User> = [];
 
-  constructor(private userservice: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userservice.getUsersFromServer();
+    this.userService.getUsersFromServer();
 
-    this.userservice.viewUsers().subscribe(
+
+    this.userService.viewUsers().subscribe(
       result => {
         this.users = result;
         console.log(result)

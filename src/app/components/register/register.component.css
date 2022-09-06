@@ -1,0 +1,8 @@
+.s {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(148, 115, 115, 0.618);
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+}

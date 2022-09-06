@@ -1,1 +1,59 @@
-<p>register works!</p>
+<div class="s">
+  <form class="f" [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <mat-form-field>
+      <input matInput placeholder="Förnamn" type="text" formControlName="firstName">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="efternamn" type="text" formControlName="lastName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" type="text" formControlName="email">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Lösenord" type="text" formControlName="password">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Tel. nummer" type="text" formControlName="phoneNumber">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Prenumerations nummer" type="text" formControlName="prenumNumber">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Organisations nummer" type="text" formControlName="orgnumber">
+    </mat-form-field>
+    <br>
+
+    <h3>Adress</h3>
+
+    <br>
+
+
+    <mat-form-field>
+      <input matInput placeholder="Stad" type="text" formControlName="city">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Gata" type="text" formControlName="street">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Roll" type="text" formControlName="role">
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="accent" type="submit" class="button">submit</button>
+    <p></p>
+  </form>
+</div>

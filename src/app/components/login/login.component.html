@@ -1,1 +1,40 @@
-<p>login works!</p>
+<form id="g" [formGroup]="loginform" (ngSubmit)="login()">
+
+  <label>Email </label>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="email" type="text" formControlName="email" />
+  </mat-form-field>
+
+
+  <div *ngIf='email?.touched && email?.invalid'>
+    <small *ngIf="email?.errors?.['required']" class="error-message"> Email is required</small>
+    <small *ngIf="email?.errors?.['email']" class="error-message">Invalid Email format</small>
+  </div>
+  <br>
+  <br>
+
+  <label>Password </label>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="password" type="password" formControlName="password" />
+  </mat-form-field>
+
+  <div *ngIf='password?.touched && password?.invalid'>
+    <small *ngIf="password?.errors?.['required']" class="error-message"> password is required</small>
+    <small *ngIf="password?.errors?.['minlength']" class="error-message"> A minimum of 8 characters is required</small>
+  </div>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="SUBSCRIBER">subs</mat-option>
+      <mat-option value="COMPANY">företag</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <button id="sbbtn" mat-raised-button color="accent" type="submit" class="button" [disabled]='!loginform.valid'>LOGIN</button>
+  <small class="error-message" *ngIf="message">{{message}}</small>
+</form>
