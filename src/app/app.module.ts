@@ -30,6 +30,8 @@ import { AdCardComponent } from './components/ad-card/ad-card.component';
 import { AdViewComponent } from './components/ad-view/ad-view.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserViewComponent } from './components/user-view/user-view.component';
+import { AdvertisementCreationComponent } from './components/advertisement-creation/advertisement-creation.component';
+import { MyAdsComponent } from './components/my-ads/my-ads.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { UserViewComponent } from './components/user-view/user-view.component';
     AdCardComponent,
     AdViewComponent,
     UserCardComponent,
-    UserViewComponent
+    UserViewComponent,
+    AdvertisementCreationComponent,
+    MyAdsComponent
   ],
   imports: [
     BrowserModule,

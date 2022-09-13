@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
       /* we connect the html to the backend here, in the input tag we use formControlName="<variable name>" and those are connected to the variables below, eg email & password in this case*/
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [
-        Validators.minLength(8),
         Validators.required,
       ]),
       role: new FormControl(''),

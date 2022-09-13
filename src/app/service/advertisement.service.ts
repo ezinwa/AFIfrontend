@@ -25,8 +25,17 @@ export class AdvertisementService {
   getAdvertisementsFromServer() {
     return this.httpcli
       .get<Advertisement[]>(`${this.ad_api_endpoint}/all`)
-      .subscribe((apiUsers) => {
-        this.ads = apiUsers;
+      .subscribe((apiAd) => {
+        this.ads = apiAd;
+        this.adSubject.next(this.ads);
+      });
+  }
+
+  getAdByEmail(email) {
+    return this.httpcli
+      .get<Advertisement[]>(`${this.ad_api_endpoint}/getAdvertisementByEmail/${email}`)
+      .subscribe((apiAd) => {
+        this.ads = apiAd;
         this.adSubject.next(this.ads);
       });
   }

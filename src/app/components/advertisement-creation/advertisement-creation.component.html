@@ -1,0 +1,35 @@
+<br>
+<div class="s">
+  <h1>Create Advertisement</h1>
+
+  <form class="f" [formGroup]="advertisementform" (ngSubmit)="createAd()">
+
+    <mat-form-field>
+      <input matInput placeholder="Email" type="text" formControlName="email">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Pris" type="text" formControlName="ad_price">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Title" type="text" formControlName="ad_title">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="content" type="text" formControlName="ad_content">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Seller" type="text" formControlName="ad_seller">
+    </mat-form-field>
+    <br>
+    <br>
+
+    <button mat-raised-button color="primary" type="submit" class="button">submit</button>
+    <p></p>
+  </form>
+</div>

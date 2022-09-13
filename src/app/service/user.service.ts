@@ -27,8 +27,13 @@ export class UserService {
     return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, Userobj)
   }
 
+  // generateTokenFromServer(Userobj: UserProfile): Observable<any> {
+  //   console.log("i gen token from serv: " + Userobj.role)
+  //   return this.httpcli.post<UserProfile>("http://localhost:8992/user/login", Userobj)
+  // }
 
-  //DELETE user
+
+  // DELETE user
   deleteUser(userId) {
     return this.httpcli
       .delete(`${this.user_api_endpoint}/deleteUser/${userId}`)
@@ -41,7 +46,7 @@ export class UserService {
       );
   }
 
-
+  // GET all users from the server
   getUsersFromServer() {
     return this.httpcli
       .get<User[]>(`${this.user_api_endpoint}/getAllUsers`)

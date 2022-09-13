@@ -8,19 +8,12 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  users: Array<User> = [];
 
-  constructor(private userservice: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userservice.getUsersFromServer();
 
-    this.userservice.viewUsers().subscribe(
-      result => {
-        this.users = result;
-        console.log(result)
 
-      })
   }
 
 }
