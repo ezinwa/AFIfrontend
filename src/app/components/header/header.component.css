@@ -1,3 +1,78 @@
-.example-spacer {
-  flex: 1 1 auto;
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+mat-toolbar {
+  background-color: rgba(252, 252, 252, 0.86);
+}
+
+#logout:hover {
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.header-text {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  color: black;
+  font-weight: 300;
+  padding-top: 10px;
+  text-shadow: 2px 3px 4px #878787c0;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  font-weight: 200;
+}
+
+#menuheader {
+  display: none;
+}
+
+ul li {
+  display: inline;
+  padding: 1em;
+  font-size: medium;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+/*TABLET*/
+@media screen and (min-width: 768px) {
+
+  #menuheader {
+    display: none;
+  }
+
+  .header-text {
+    font-size: 30px;
+  }
+}
+
+/*DESKTOP*/
+@media screen and (min-width: 1024px) {
+
+  .header-text {
+    font-size: 35px;
+  }
+
+  button {
+    display: none;
+  }
+
+  #menuheader {
+    display: flex;
+    flex-direction: row;
+    padding-top: 22px;
+  }
 }

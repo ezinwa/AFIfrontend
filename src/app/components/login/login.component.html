@@ -3,7 +3,7 @@
   <label>Email </label>
   <br>
   <mat-form-field>
-    <input matInput placeholder="email" type="text" formControlName="email" />
+    <input matInput placeholder="Email" type="text" formControlName="email" />
   </mat-form-field>
 
 
@@ -17,7 +17,7 @@
   <label>Password </label>
   <br>
   <mat-form-field>
-    <input matInput placeholder="password" type="password" formControlName="password" />
+    <input matInput placeholder="Password" type="password" formControlName="password" />
   </mat-form-field>
 
   <div *ngIf='password?.touched && password?.invalid'>
@@ -29,8 +29,8 @@
   <mat-form-field appearance="fill">
     <mat-label>Select</mat-label>
     <mat-select formControlName="role">
-      <mat-option value="SUBSCRIBER">subs</mat-option>
-      <mat-option value="COMPANY">företag</mat-option>
+      <mat-option value="SUBSCRIBER">Prenumerant</mat-option>
+      <mat-option value="COMPANY">Företag</mat-option>
     </mat-select>
   </mat-form-field>
 

@@ -1,0 +1,12 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+
+
+}
+
+.center h2 {
+  margin: auto;
+}

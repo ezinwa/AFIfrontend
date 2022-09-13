@@ -8,12 +8,18 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  loggedin = false;
 
   constructor() { }
 
   ngOnInit(): void {
 
 
+  }
+
+  logout() {
+    sessionStorage.clear();
+    sessionStorage.setItem("loggedIn", "false")
   }
 
 }
