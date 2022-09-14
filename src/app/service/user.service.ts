@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user';
@@ -16,6 +16,13 @@ export class UserService {
   private user_api_endpoint = 'http://localhost:9005/user';
 
   constructor(private httpcli: HttpClient) { }
+
+  private updateMenu = new Subject<void>();
+
+  get updatemenu() {
+    return this.updateMenu;
+  }
+
 
   // POST creates a user
   createUser(Userobj: User): Observable<any> {

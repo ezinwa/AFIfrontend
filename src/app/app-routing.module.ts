@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MyAdsComponent } from './components/my-ads/my-ads.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserViewComponent } from './components/user-view/user-view.component';
+import { CompanyGuard } from './guard/company.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'adview', component: AdViewComponent },
   { path: 'userview', component: UserViewComponent },
   { path: 'adcreation', component: AdvertisementCreationComponent },
-  { path: 'minasidor', component: MyAdsComponent },
+  { path: 'minasidor', component: MyAdsComponent, canActivate: [CompanyGuard] },
+
 
 
 

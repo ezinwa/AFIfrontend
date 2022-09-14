@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OrganicRouterService } from 'src/app/service/organic-router.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public loginform: FormGroup;
   public message: string;
 
-  constructor(private fb: FormBuilder, private service: UserService) {
+  constructor(private fb: FormBuilder, private service: UserService, private organicroute: OrganicRouterService) {
 
     this.loginform = this.fb.group({
       /* we connect the html to the backend here, in the input tag we use formControlName="<variable name>" and those are connected to the variables below, eg email & password in this case*/
@@ -40,7 +41,6 @@ export class LoginComponent implements OnInit {
   }
   login() {
 
-    this.loginSwitch = false;
     let x = this.loginform.controls["role"].value
     console.log(this.loginform.controls["role"].value)
     this.service.logInUser(this.loginform.value).subscribe(
@@ -50,7 +50,17 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("role", this.loginform.controls["role"].value)
         sessionStorage.setItem("email", this.loginform.controls["email"].value)
 
+        if (x === "COMPANY") {
+          // this.organicroute.openAdcreation()
+          //window.location.reload();
+          this.service.updatemenu.next()
 
+        } else if (x === "SUBSCRIBER") {
+          // window.location.reload();
+          // this.organicroute.openMinsidor()
+          this.service.updatemenu.next()
+
+        }
 
 
       }

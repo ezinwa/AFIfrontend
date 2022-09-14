@@ -2,18 +2,22 @@
   <p class="header-text" style="letter-spacing:0.2em;">AFI</p>
   <div id="menuheader">
     <ul style="letter-spacing:0.1em;">
-      <li><a [routerLink]="['/minasidor']" routerLinkActive="router-link-active">Mina sidor</a></li>
-      <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Hem</a></li>
-      <li><a [routerLink]="['/adview']" routerLinkActive="router-link-active">Annonser </a></li>
-      <li><a [routerLink]="['/reg']" routerLinkActive="router-link-active">Registrera</a></li>
+
       <li><a [routerLink]="['/userview']" routerLinkActive="router-link-active">Användare </a></li>
-      <li><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">skapa Annons </a></li>
+      <li><a [routerLink]="['/adview']" routerLinkActive="router-link-active">Annonser </a></li>
+
+      <li><a *ngIf="displaySub" [routerLink]="['/minasidor']" routerLinkActive="router-link-active">Mina sidor</a></li>
+      <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Hem</a></li>
+      <li><a [routerLink]="['/reg']" routerLinkActive="router-link-active">Registrera</a></li>
+
+      <li><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">Skapa Annons </a></li>
 
 
 
       <span> | </span>
-      <li *ngIf="!loggedin"><a [routerLink]="['/login']" routerLinkActive="router-link-active">Log In</a></li>
-      <li *ngIf="loggedin" (click)="logout()"><a id="logout">Log out</a></li>
+      <li *ngIf="!loggedIn"><a [routerLink]="['/login']" routerLinkActive="router-link-active">Logga In</a></li>
+
+      <li *ngIf="loggedIn" (click)="logout()"><a id="logout">Log out</a></li>
 
     </ul>
   </div>

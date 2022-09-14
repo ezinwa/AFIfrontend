@@ -48,8 +48,12 @@
 
     <br>
 
-    <mat-form-field>
-      <input matInput placeholder="Roll" type="text" formControlName="role">
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="COMPANY">Företag</mat-option>
+        <mat-option value="SUBSCRIBER">Prenumerant</mat-option>
+      </mat-select>
     </mat-form-field>
     <br>
 
