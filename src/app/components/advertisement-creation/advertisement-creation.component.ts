@@ -28,6 +28,11 @@ export class AdvertisementCreationComponent implements OnInit {
   }
 
   createAd() {
+    console.log("före creartAd" + this.advertisementform.value.ad_sellingPrice)
+    if (sessionStorage.getItem("role") === "COMPANY") {
+      this.advertisementform.value.ad_sellingPrice = "40"
+    }
+    console.log("efter createAd" + this.advertisementform.value.ad_sellingPrice)
 
 
     console.log(this.advertisementform.value)
