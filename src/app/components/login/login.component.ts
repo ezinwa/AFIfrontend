@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   getRole() {
     return this.loginform.get('role');
   }
+  
   login() {
 
     let x = this.loginform.controls["role"].value

@@ -9,6 +9,7 @@ import { AdvertisementService } from 'src/app/service/advertisement.service';
 })
 export class AdvertisementCreationComponent implements OnInit {
   public advertisementform: FormGroup
+  role: String = sessionStorage.getItem("role");
 
   constructor(private fb: FormBuilder, private service: AdvertisementService) {
     this.advertisementform = this.fb.group({

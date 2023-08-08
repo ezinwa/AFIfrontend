@@ -14,7 +14,7 @@ button {
 }
 
 .header-text {
-  font-family: 'Caveat', cursive;
+  font-family: 'roboto';
   font-size: 25px;
   color: black;
   font-weight: 300;
@@ -73,6 +73,5 @@ a {
   #menuheader {
     display: flex;
     flex-direction: row;
-    padding-top: 22px;
   }
 }

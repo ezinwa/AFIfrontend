@@ -1,6 +1,8 @@
 <br>
 <div class="s">
   <h1>Create Advertisement</h1>
+  <h2>you are creating a n AD as a </h2>
+  <h2>{{role}}</h2>
 
   <form class="f" [formGroup]="advertisementform" (ngSubmit)="createAd()">
 
@@ -9,7 +11,11 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput placeholder="Pris" type="text" formControlName="ad_price">
+      <input matInput placeholder="Pris" type="text" formControlName="ad_sellingPrice">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <p *ngIf = "!role">hej</p>
     </mat-form-field>
     <br>
 
