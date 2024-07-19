@@ -1,41 +1,50 @@
-<br>
 <div class="s">
   <h1>Create Advertisement</h1>
-  <h2>you are creating a n AD as a </h2>
-  <h2>{{role}}</h2>
+  <h2>You are creating an ad as a {{role}}</h2>
 
-  <form class="f" [formGroup]="advertisementform" (ngSubmit)="createAd()">
+  <form class="f" [formGroup]="advertisementForm" (ngSubmit)="createAd()">
 
     <mat-form-field>
-      <input matInput placeholder="Email" type="text" formControlName="email">
+      <input matInput placeholder="Email" type="email" formControlName="email">
+      <mat-error *ngIf="advertisementForm.get('email').invalid && advertisementForm.get('email').touched">
+        Please enter a valid email address.
+      </mat-error>
     </mat-form-field>
     <br>
+
     <mat-form-field>
-      <input matInput placeholder="Pris" type="text" formControlName="ad_sellingPrice">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <p *ngIf = "!role">hej</p>
+      <input matInput placeholder="Price" type="text" formControlName="ad_sellingPrice">
+      <mat-error *ngIf="advertisementForm.get('ad_sellingPrice').invalid && advertisementForm.get('ad_sellingPrice').touched">
+        Price is required.
+      </mat-error>
     </mat-form-field>
     <br>
 
     <mat-form-field>
       <input matInput placeholder="Title" type="text" formControlName="ad_title">
+      <mat-error *ngIf="advertisementForm.get('ad_title').invalid && advertisementForm.get('ad_title').touched">
+        Title is required.
+      </mat-error>
     </mat-form-field>
-
     <br>
+
     <mat-form-field>
-      <input matInput placeholder="content" type="text" formControlName="ad_content">
+      <input matInput placeholder="Content" type="text" formControlName="ad_content">
+      <mat-error *ngIf="advertisementForm.get('ad_content').invalid && advertisementForm.get('ad_content').touched">
+        Content is required.
+      </mat-error>
     </mat-form-field>
     <br>
 
     <mat-form-field>
       <input matInput placeholder="Seller" type="text" formControlName="ad_seller">
+      <mat-error *ngIf="advertisementForm.get('ad_seller').invalid && advertisementForm.get('ad_seller').touched">
+        Seller is required.
+      </mat-error>
     </mat-form-field>
     <br>
-    <br>
 
-    <button mat-raised-button color="primary" type="submit" class="button">submit</button>
+    <button mat-raised-button color="primary" type="submit" class="button">Submit</button>
     <p></p>
   </form>
 </div>

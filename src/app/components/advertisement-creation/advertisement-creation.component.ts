@@ -8,11 +8,13 @@ import { AdvertisementService } from 'src/app/service/advertisement.service';
   styleUrls: ['./advertisement-creation.component.css']
 })
 export class AdvertisementCreationComponent implements OnInit {
-  public advertisementform: FormGroup
+  public advertisementForm: FormGroup
   role: String = sessionStorage.getItem("role");
 
-  constructor(private fb: FormBuilder, private service: AdvertisementService) {
-    this.advertisementform = this.fb.group({
+  constructor(private fb: FormBuilder, private service: AdvertisementService) {}
+
+  ngOnInit(): void {
+    this.advertisementForm = this.fb.group({
 
       email: new FormControl('', [Validators.required, Validators.email]),
       ad_price: new FormControl('', [Validators.required]),
@@ -22,22 +24,18 @@ export class AdvertisementCreationComponent implements OnInit {
       ad_sellingPrice: new FormControl('', [Validators.required]),
 
     });
-
-  }
-
-  ngOnInit(): void {
   }
 
   createAd() {
-    console.log("före creartAd" + this.advertisementform.value.ad_sellingPrice)
-    if (!(sessionStorage.getItem("role") === "SUBSCRBER")) {
-      this.advertisementform.value.ad_sellingPrice = "40"
+    console.log("före creartAd" + this.advertisementForm.value.ad_sellingPrice)
+    if (!(sessionStorage.getItem("role") === "SUBSCRIBER")) {
+      this.advertisementForm.value.ad_sellingPrice = "40"
     }
-    console.log("efter createAd" + this.advertisementform.value.ad_sellingPrice)
+    console.log("efter createAd" + this.advertisementForm.value.ad_sellingPrice)
 
 
-    console.log(this.advertisementform.value)
-    this.service.createAdvertisement(this.advertisementform.value).subscribe(
+    console.log(this.advertisementForm.value)
+    this.service.createAdvertisement(this.advertisementForm.value).subscribe(
       (res) => {
 
         console.log("new Ad created")
