@@ -36,15 +36,14 @@ export class LoginComponent implements OnInit {
     return this.loginform.get('password');
   }
 
-  getRole() {
+  get role() {
     return this.loginform.get('role');
   }
   
   login() {
 
     let x = this.loginform.controls["role"].value
-    console.log(this.loginform.controls["role"].value)
-    this.service.logInUser(this.loginform.value).subscribe(
+    this.service.logInUser(this.loginform.controls["email"].value,this.loginform.controls["password"].value,this.loginform.controls["role"].value).subscribe(
       (res) => {
         console.log(res)
         sessionStorage.setItem("loggedin", "true");
