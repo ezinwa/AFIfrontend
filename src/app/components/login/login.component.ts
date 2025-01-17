@@ -39,11 +39,12 @@ export class LoginComponent implements OnInit {
   get role() {
     return this.loginform.get('role');
   }
-  
+
   login() {
 
     let x = this.loginform.controls["role"].value
-    this.service.logInUser(this.loginform.controls["email"].value,this.loginform.controls["password"].value,this.loginform.controls["role"].value).subscribe(
+    this.service.logInUser(this.loginform.value).subscribe(
+
       (res) => {
         console.log(res)
         sessionStorage.setItem("loggedin", "true");
@@ -51,13 +52,13 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("email", this.loginform.controls["email"].value)
 
         if (x === "COMPANY") {
-          // this.organicroute.openAdcreation()
-          //window.location.reload();
+          this.organicroute.openAdcreation()
+          window.location.reload();
           this.service.updatemenu.next()
 
         } else if (x === "SUBSCRIBER") {
-          // window.location.reload();
-          // this.organicroute.openMinsidor()
+          window.location.reload();
+          this.organicroute.openMinsidor()
           this.service.updatemenu.next()
 
         }
