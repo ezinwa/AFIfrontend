@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdvertisementService } from 'src/app/service/advertisement.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  adCount: number = 0;
+  userCount: number = 0;
 
-  constructor() { }
+  constructor(private adService: AdvertisementService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.adCount = this.adService.countAdvertisements();
+    this.userCount = this.userService.getUserCount();
   }
-
 }

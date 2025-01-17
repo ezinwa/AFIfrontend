@@ -15,13 +15,16 @@ export class UserViewComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsersFromServer();
 
-
     this.userService.viewUsers().subscribe(
       result => {
         this.users = result;
         console.log(result)
-
       })
   }
 
+  deleteUser(userId: number): void {
+    this.userService.deleteUser(userId).subscribe(() => {
+      this.users = this.users.filter(user => user.userId !== userId);
+    });
+  }
 }

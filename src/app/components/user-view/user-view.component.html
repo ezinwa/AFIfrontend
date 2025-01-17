@@ -4,9 +4,11 @@
   </div>
 
   <div class="disp"></div>
-  <div *ngFor="let user of users">
+  <div *ngFor="let user of users" class="user-card-container">
     <app-user-card [user]="user">
     </app-user-card>
+    <button class="delete-button" (click)="deleteUser(user.userId)">Delete</button>
   </div>
+
 
 </div>

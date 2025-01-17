@@ -30,6 +30,9 @@ export class AdvertisementService {
         this.adSubject.next(this.ads);
       });
   }
+  countAdvertisements(): number {
+    return this.ads.length;
+  }
 
   getAdByEmail(email) {
     return this.httpcli

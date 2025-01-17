@@ -1,0 +1,95 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Container for the landing page */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* Header styles */
+.landing-page h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+/* Paragraph styles */
+.landing-page p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+/* Button styles */
+.landing-page .cta-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.feature p {
+  color: #000;
+}
+
+.landing-page .cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ad count card styles */
+.ad-count-card {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.ad-count-card .card-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.ad-count-card .card-content p {
+  font-size: 2em;
+  margin: 10px 0 0;
+}
+
+/* User count card styles */
+.user-count-card {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.user-count-card .card-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.user-count-card .card-content p {
+  font-size: 2em;
+  margin: 10px 0 0;
+}

@@ -41,14 +41,16 @@ export class UserService {
 
 
   // DELETE user
-  deleteUser(userId) {
+  deleteUser(userId: number): Observable<any> {
     return this.httpcli
       .delete(`${this.user_api_endpoint}/deleteUser/${userId}`)
       .pipe(
-        tap((userId) => {
+        tap(() => {
           let indx = this.users.findIndex((user) => user.userId === userId);
-          this.users.splice(indx, 1);
-          this.usersSubject.next(this.users);
+          if (indx > -1) {
+            this.users.splice(indx, 1);
+            this.usersSubject.next(this.users);
+          }
         })
       );
   }
@@ -64,5 +66,10 @@ export class UserService {
   }
   viewUsers(): Observable<User[]> {
     return this.usersSubject;
+  }
+
+  getUserCount(): number {
+    console.log("user count: " + this.users.length)
+    return this.users.length;
   }
 }
