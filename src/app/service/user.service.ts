@@ -30,9 +30,11 @@ export class UserService {
   }
 
   // POST login user and retrieves a token
-  logInUser(Userobj: User): Observable<any> {
-    return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, Userobj)
+  logInUser(email:string,password:string,role:string): Observable<any> {
+    let reqbody =[email,password,role] 
+    return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, reqbody)
   }
+
 
   // generateTokenFromServer(Userobj: UserProfile): Observable<any> {
   //   console.log("i gen token from serv: " + Userobj.role)

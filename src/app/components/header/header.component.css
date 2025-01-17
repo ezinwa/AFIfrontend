@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 mat-toolbar {
-  background-color: rgba(252, 252, 252, 0.86);
+  background-color: rgba(214, 42, 42, 0.86);
 }
 
 #logout:hover {
@@ -14,12 +14,15 @@ button {
 }
 
 .header-text {
-  font-family: 'roboto bold', sans-serif;
+  font-family: 'roboto';
   font-size: 25px;
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: 300;
   padding-top: 10px;
   text-shadow: 2px 3px 4px #878787c0;
+  display: flex;
+  align-items: center;
+
 }
 
 .mat-toolbar {
@@ -42,7 +45,7 @@ ul li {
 }
 
 a {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 200;
 }
@@ -73,6 +76,5 @@ a {
   #menuheader {
     display: flex;
     flex-direction: row;
-    padding-top: 22px;
   }
 }

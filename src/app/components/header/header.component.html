@@ -1,16 +1,22 @@
 <mat-toolbar>
-  <p class="header-text" style="letter-spacing:0.2em;">AFI</p>
+  <div id="menuheader">
+    <p class="header-text" style="letter-spacing:0.5em;">AFI</p>
+    <ul style="letter-spacing:0.1em;">
+      <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Hem</a></li>
+
+    </ul>
+  </div>
   <div id="menuheader">
     <ul style="letter-spacing:0.1em;">
+
 
       <li><a [routerLink]="['/userview']" routerLinkActive="router-link-active">Användare </a></li>
       <li><a [routerLink]="['/adview']" routerLinkActive="router-link-active">Annonser </a></li>
 
       <li><a *ngIf="displaySub" [routerLink]="['/minasidor']" routerLinkActive="router-link-active">Mina sidor</a></li>
-      <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Hem</a></li>
-      <li><a [routerLink]="['/reg']" routerLinkActive="router-link-active">Registrera</a></li>
+      <li *ngIf="!loggedIn" ><a [routerLink]="['/reg']" routerLinkActive="router-link-active">Registrera</a></li>
 
-      <li><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">Skapa Annons </a></li>
+      <li *ngIf="loggedIn"><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">Skapa Annons </a></li>
 
 
 
