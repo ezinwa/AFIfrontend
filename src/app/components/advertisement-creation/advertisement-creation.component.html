@@ -11,12 +11,19 @@
       </mat-error>
     </mat-form-field>
     <br>
-
     <mat-form-field>
-      <input matInput placeholder="Price" type="text" formControlName="ad_sellingPrice">
-      <mat-error *ngIf="advertisementForm.get('ad_sellingPrice').invalid && advertisementForm.get('ad_sellingPrice').touched">
+      <input matInput placeholder="Price" type="text" formControlName="ad_price">
+      <mat-error *ngIf="advertisementForm.get('ad_price').invalid && advertisementForm.get('ad_price').touched">
         Price is required.
       </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field *ngIf="role === 'SUBSCRIBER'">
+      <input matInput placeholder="0 KR" type="text" disabled>
+    </mat-form-field>
+    <mat-form-field *ngIf="role === 'COMPANY'">
+      <input matInput placeholder="40 KR" type="text" disabled>
     </mat-form-field>
     <br>
 

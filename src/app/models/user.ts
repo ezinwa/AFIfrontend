@@ -9,5 +9,6 @@ export class User {
   phoneNumber: string = "";
   city: string = "";
   street: string = "";
+  postnummer: string = "";
   role: string = "SUBSCRIBER";
 }
