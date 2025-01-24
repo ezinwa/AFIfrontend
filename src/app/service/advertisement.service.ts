@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Advertisement } from '../models/advertisement';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,10 @@ export class AdvertisementService {
   ads: Array<Advertisement> = [];
   adSubject: BehaviorSubject<Array<Advertisement>> = new BehaviorSubject(
     this.ads
+  );
+  user: User = new User();
+  usersSubject: BehaviorSubject<User> = new BehaviorSubject(
+    this.user
   );
 
   private ad_api_endpoint = 'http://localhost:9006/ad';
@@ -42,7 +47,17 @@ export class AdvertisementService {
         this.adSubject.next(this.ads);
       });
   }
-
+  getUserbyEmail(email) {
+    return this.httpcli
+      .get<User>(`${this.ad_api_endpoint}/getSingleUserByEmail/${email}`)
+      .subscribe((apiUser) => {
+        this.user = apiUser;
+        this.usersSubject.next
+      });
+  }
+  temp(): Observable<User> {
+    return this.usersSubject;
+  }
   viewAdvertisement(): Observable<Advertisement[]> {
     return this.adSubject;
   }

@@ -28,6 +28,20 @@
     <br>
 
     <mat-form-field>
+      <input matInput placeholder="Telefon" type="text" formControlName="ad_telefon">
+      <mat-error *ngIf="advertisementForm.get('ad_telefon').invalid && advertisementForm.get('ad_telefon').touched">
+        Title is required.
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="utdelningsadress" type="text" formControlName="ad_utdelningsadress">
+      <mat-error *ngIf="advertisementForm.get('ad_utdelningsadress').invalid && advertisementForm.get('ad_utdelningsadress').touched">
+        Title is required.
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
       <input matInput placeholder="Title" type="text" formControlName="ad_title">
       <mat-error *ngIf="advertisementForm.get('ad_title').invalid && advertisementForm.get('ad_title').touched">
         Title is required.

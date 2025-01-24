@@ -18,8 +18,17 @@ export class UserViewComponent implements OnInit {
     this.userService.viewUsers().subscribe(
       result => {
         this.users = result;
-        console.log(result)
       })
+    console.log(this.users)
+    this.temp();
+  }
+
+  temp() {
+    var x = this.userService.getUserByEmail(sessionStorage.getItem('email'));
+    x.subscribe(data => {
+      console.log("x: ", data);
+    });
+
   }
 
   deleteUser(userId: number): void {

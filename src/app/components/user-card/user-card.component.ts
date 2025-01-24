@@ -10,7 +10,6 @@ import { UserService } from 'src/app/service/user.service';
 export class UserCardComponent implements OnInit {
   @Input()
   user: User = new User();
-  constructor(private service: UserService) { }
 
   ngOnInit(): void {
   }

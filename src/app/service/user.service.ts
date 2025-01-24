@@ -29,15 +29,15 @@ export class UserService {
     return this.httpcli.post<User>(`${this.user_api_endpoint}/register`, Userobj)
   }
 
-  getUserByEmail(prenumNumber: string): Observable<User> {
-    return this.httpcli.get<User>(`${this.user_api_endpoint}/getSingleUser/${prenumNumber}`)
+  getUserByEmail(email: String): Observable<User> {
+    return this.httpcli.get<User>(`${this.user_api_endpoint}/${email}`)
   }
 
   // POST login user and retrieves a token
-//logInUser(loginform): Observable<any> {
-//  let reqbody =[email,password,role]
-//  return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, reqbody)
-//}
+  //logInUser(loginform): Observable<any> {
+  //  let reqbody =[email,password,role]
+  //  return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, reqbody)
+  //}
   logInUser(Userobj: User): Observable<any> {
     return this.httpcli.post<User>(`${this.user_api_endpoint}/login`, Userobj)
   }
