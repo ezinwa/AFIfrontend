@@ -52,17 +52,14 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("email", this.loginform.controls["email"].value)
 
         if (x === "COMPANY") {
-          this.organicroute.openAdcreation()
-          window.location.reload();
+          this.organicroute.openHome()
           this.service.updatemenu.next()
 
         } else if (x === "SUBSCRIBER") {
-          window.location.reload();
           this.organicroute.openMinsidor()
           this.service.updatemenu.next()
 
         }
-
 
       }
     )

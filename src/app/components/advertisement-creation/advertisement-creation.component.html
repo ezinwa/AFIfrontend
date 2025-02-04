@@ -1,71 +1,62 @@
 <div class="s">
   <h1>Create Advertisement</h1>
   <h2>You are creating an ad as a {{role}}</h2>
+  <div class="row">
+    <form class="f" [formGroup]="advertisementForm" (ngSubmit)="createAd()">
+      <mat-form-field *ngIf="role === 'SUBSCRIBER'">
+        <input matInput placeholder="0 KR" type="text" disabled>
+      </mat-form-field>
+      <mat-form-field *ngIf="role === 'COMPANY'">
+        <input matInput placeholder="40 KR" type="text" disabled>
+      </mat-form-field>
+      <br>
 
-  <form class="f" [formGroup]="advertisementForm" (ngSubmit)="createAd()">
+      <mat-form-field>
+        <input matInput placeholder="Title" type="text" formControlName="ad_title">
+        <mat-error *ngIf="advertisementForm.get('ad_title').invalid && advertisementForm.get('ad_title').touched">
+          Title is required.
+        </mat-error>
+      </mat-form-field>
+      <br>
 
-    <mat-form-field>
-      <input matInput placeholder="Email" type="email" formControlName="email">
-      <mat-error *ngIf="advertisementForm.get('email').invalid && advertisementForm.get('email').touched">
-        Please enter a valid email address.
-      </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput placeholder="Price" type="text" formControlName="ad_price">
-      <mat-error *ngIf="advertisementForm.get('ad_price').invalid && advertisementForm.get('ad_price').touched">
-        Price is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
+      <mat-form-field>
+        <input matInput placeholder="Content" type="text" formControlName="ad_content">
+        <mat-error *ngIf="advertisementForm.get('ad_content').invalid && advertisementForm.get('ad_content').touched">
+          Content is required.
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Price" type="text" formControlName="ad_price">
+        <mat-error *ngIf="advertisementForm.get('ad_price').invalid && advertisementForm.get('ad_price').touched">
+          Price is required.
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Postnummer" type="text" formControlName="ad_postnummer">
+        <mat-error *ngIf="advertisementForm.get('ad_postnummer').invalid && advertisementForm.get('ad_postnummer').touched">
+          Price is required.
+        </mat-error>
+      </mat-form-field>
+      <br>
 
-    <mat-form-field *ngIf="role === 'SUBSCRIBER'">
-      <input matInput placeholder="0 KR" type="text" disabled>
-    </mat-form-field>
-    <mat-form-field *ngIf="role === 'COMPANY'">
-      <input matInput placeholder="40 KR" type="text" disabled>
-    </mat-form-field>
-    <br>
+      <button mat-raised-button type="submit" class="button">Submit</button>
+      <p></p>
+    </form>
 
-    <mat-form-field>
-      <input matInput placeholder="Telefon" type="text" formControlName="ad_telefon">
-      <mat-error *ngIf="advertisementForm.get('ad_telefon').invalid && advertisementForm.get('ad_telefon').touched">
-        Title is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput placeholder="utdelningsadress" type="text" formControlName="ad_utdelningsadress">
-      <mat-error *ngIf="advertisementForm.get('ad_utdelningsadress').invalid && advertisementForm.get('ad_utdelningsadress').touched">
-        Title is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput placeholder="Title" type="text" formControlName="ad_title">
-      <mat-error *ngIf="advertisementForm.get('ad_title').invalid && advertisementForm.get('ad_title').touched">
-        Title is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
+    <div class="personinfo">
+      <h3>
+        Personlig information
+      </h3>
+      <p>Mail: {{email}}</p>
+      <br>
+      <p>Tel: {{advertisementForm.get('ad_telefon').value}}</p>
+      <br>
+      <p>Adress: {{advertisementForm.get('ad_utdelningsadress').value}}</p>
+      <br>
+      <p>Säljare: {{advertisementForm.get('ad_seller').value}}</p>
+    </div>
+  </div>
 
-    <mat-form-field>
-      <input matInput placeholder="Content" type="text" formControlName="ad_content">
-      <mat-error *ngIf="advertisementForm.get('ad_content').invalid && advertisementForm.get('ad_content').touched">
-        Content is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
-
-    <mat-form-field>
-      <input matInput placeholder="Seller" type="text" formControlName="ad_seller">
-      <mat-error *ngIf="advertisementForm.get('ad_seller').invalid && advertisementForm.get('ad_seller').touched">
-        Seller is required.
-      </mat-error>
-    </mat-form-field>
-    <br>
-
-    <button mat-raised-button color="primary" type="submit" class="button">Submit</button>
-    <p></p>
-  </form>
 </div>

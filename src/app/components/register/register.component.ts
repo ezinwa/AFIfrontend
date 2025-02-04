@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OrganicRouterService } from 'src/app/service/organic-router.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup
 
-  constructor(private fb: FormBuilder, private service: UserService) {
+  constructor(private fb: FormBuilder, private service: UserService, private organicroute: OrganicRouterService) {
     this.registerForm = this.fb.group({
       firstName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern("[a-zA-Z ]*")]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern("[a-zA-Z ]*")]),
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       prenumNumber: new FormControl('', [Validators.required, Validators.minLength(8)]),
       orgNumber: new FormControl('', [Validators.required, Validators.minLength(8)]),
-
+      postnummer: new FormControl('', [Validators.required, Validators.minLength(5)]),
       phoneNumber: new FormControl(''),
       role: new FormControl('SUBSCRIBER'),
       city: new FormControl(''),
@@ -38,5 +39,6 @@ export class RegisterComponent implements OnInit {
         console.log("new user registered")
       }
     )
+    this.organicroute.openLogin()
   }
 }

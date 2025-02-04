@@ -25,6 +25,7 @@ export class AdvertisementCreationComponent implements OnInit {
       ad_price: new FormControl('', [Validators.required]),
       ad_sellingCost: new FormControl(holder, [Validators.required]),
       ad_postnummer: new FormControl('', [Validators.required]),
+
       ad_ort: new FormControl('', [Validators.required]),
       ad_telefon: new FormControl('', [Validators.required]),
       ad_utdelningsadress: new FormControl('', [Validators.required]),
@@ -49,11 +50,21 @@ export class AdvertisementCreationComponent implements OnInit {
     var userByemail = this.userService.getUserByEmail(sessionStorage.getItem('email'));
     userByemail.subscribe(data => {
       this.user = data;
+      var utdelningsadress = "";
 
+      if (data.city != null) {
+        utdelningsadress = data.city;
+      }
+      if (data.street != null) {
+        utdelningsadress += " " + data.street;
+      }
+      if (data.postnummer != null) {
+        utdelningsadress += " " + data.postnummer;
+      }
       this.advertisementForm.controls['ad_seller'].setValue(data.firstName + " " + data.lastName);
       this.advertisementForm.controls['email'].setValue(data.email);
       this.advertisementForm.controls['ad_telefon'].setValue(data.phoneNumber);
-      this.advertisementForm.controls['ad_utdelningsadress'].setValue(data.city + " " + data.street + " " + data.postnummer);
+      this.advertisementForm.controls['ad_utdelningsadress'].setValue(utdelningsadress);
 
     });
     console.log(this.user)

@@ -1,6 +1,6 @@
 <div class="s">
   <form class="f" [formGroup]="registerForm" (ngSubmit)="register()">
-
+  <h3>Person information</h3>
     <mat-form-field>
       <input matInput placeholder="Förnamn" type="text" formControlName="firstName">
     </mat-form-field>
@@ -45,7 +45,10 @@
     <mat-form-field>
       <input matInput placeholder="Gata" type="text" formControlName="street">
     </mat-form-field>
-
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Postnummer" type="text" formControlName="postnummer">
+    </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">

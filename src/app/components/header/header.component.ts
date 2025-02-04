@@ -51,6 +51,8 @@ export class HeaderComponent implements OnInit {
   logout() {
     sessionStorage.clear();
     sessionStorage.setItem("loggedIn", "false")
+    this.service.updatemenu.next()
+    this.orgserv.openHome();
   }
 
 }
