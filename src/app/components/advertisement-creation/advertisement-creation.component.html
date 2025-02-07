@@ -4,10 +4,10 @@
   <div class="row">
     <form class="f" [formGroup]="advertisementForm" (ngSubmit)="createAd()">
       <mat-form-field *ngIf="role === 'SUBSCRIBER'">
-        <input matInput placeholder="0 KR" type="text" disabled>
+        <input matInput placeholder="Annonsering är gratis" type="text" disabled>
       </mat-form-field>
       <mat-form-field *ngIf="role === 'COMPANY'">
-        <input matInput placeholder="40 KR" type="text" disabled>
+        <input matInput placeholder="Annonsering kostar 40 KR" type="text" disabled>
       </mat-form-field>
       <br>
 
@@ -45,7 +45,7 @@
       <p></p>
     </form>
 
-    <div class="personinfo">
+    <div class="personinfo" *ngIf="role === 'SUBSCRIBER'">
       <h3>
         Personlig information
       </h3>
@@ -57,6 +57,40 @@
       <br>
       <p>Säljare: {{advertisementForm.get('ad_seller').value}}</p>
     </div>
-  </div>
+    <form class="f" [formGroup]="advertisementForm" (ngSubmit)="createAd()">
 
+      <div class="personinfo" *ngIf="role === 'COMPANY'">
+        <h3>
+          Personlig information
+        </h3>
+        <mat-form-field>
+          <input matInput placeholder="Email" type="text" formControlName="email">
+          <mat-error *ngIf="advertisementForm.get('email').invalid && advertisementForm.get('email').touched">
+            Price is required.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Telefon" type="text" formControlName="ad_telefon">
+          <mat-error *ngIf="advertisementForm.get('ad_telefon').invalid && advertisementForm.get('ad_telefon').touched">
+            Price is required.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Utdelningsadress" type="text" formControlName="ad_utdelningsadress">
+          <mat-error *ngIf="advertisementForm.get('ad_utdelningsadress').invalid && advertisementForm.get('ad_utdelningsadress').touched">
+            Price is required.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Seller" type="text" formControlName="ad_seller">
+          <mat-error *ngIf="advertisementForm.get('ad_seller').invalid && advertisementForm.get('ad_seller').touched">
+            Price is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
 </div>

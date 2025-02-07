@@ -4,7 +4,7 @@ export class Advertisement {
   ad_postnummer: string;
   ad_ort: string;
   ad_id: number;
-  ad_email: string;
+  email: string;
   ad_price: number;
   ad_title: string;
   ad_content: string;

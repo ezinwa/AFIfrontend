@@ -21,11 +21,12 @@ export class AdvertisementCreationComponent implements OnInit {
   ngOnInit(): void {
     this.advertisementForm = this.fb.group({
 
-      email: new FormControl(this.email, [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       ad_price: new FormControl('', [Validators.required]),
       ad_sellingCost: new FormControl(holder, [Validators.required]),
       ad_postnummer: new FormControl('', [Validators.required]),
 
+      ad_orgnummer: new FormControl('', [Validators.required]),
       ad_ort: new FormControl('', [Validators.required]),
       ad_telefon: new FormControl('', [Validators.required]),
       ad_utdelningsadress: new FormControl('', [Validators.required]),
@@ -61,10 +62,14 @@ export class AdvertisementCreationComponent implements OnInit {
       if (data.postnummer != null) {
         utdelningsadress += " " + data.postnummer;
       }
-      this.advertisementForm.controls['ad_seller'].setValue(data.firstName + " " + data.lastName);
-      this.advertisementForm.controls['email'].setValue(data.email);
-      this.advertisementForm.controls['ad_telefon'].setValue(data.phoneNumber);
-      this.advertisementForm.controls['ad_utdelningsadress'].setValue(utdelningsadress);
+      if (this.role === "SUBSCRIBER") {
+        this.advertisementForm.controls['email'].setValue(data.email);
+        this.advertisementForm.controls['ad_seller'].setValue(data.firstName + " " + data.lastName);
+        this.advertisementForm.controls['email'].setValue(data.email);
+        this.advertisementForm.controls['ad_telefon'].setValue(data.phoneNumber);
+        this.advertisementForm.controls['ad_utdelningsadress'].setValue(utdelningsadress);
+      }
+
 
     });
     console.log(this.user)
