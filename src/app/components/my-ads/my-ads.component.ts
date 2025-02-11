@@ -22,5 +22,10 @@ export class MyAdsComponent implements OnInit {
       }
     )
   }
-
+  deleteMyAd(ad: Advertisement){
+    this.service.deleteAd(ad.id).subscribe(() => {
+      this.ads = this.ads.filter(ads => ads.id !== ad.id);
+    });
+    window.location.reload();
+  }
 }

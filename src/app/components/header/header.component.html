@@ -16,14 +16,14 @@
       <li><a *ngIf="displaySub" [routerLink]="['/minasidor']" routerLinkActive="router-link-active">Mina sidor</a></li>
       <li *ngIf="!loggedIn" ><a [routerLink]="['/reg']" routerLinkActive="router-link-active">Registrera</a></li>
 
-      <li *ngIf="loggedIn"><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">Skapa Annons </a></li>
+      <li *ngIf="loggedIn"><a [routerLink]="['/adcreation']" routerLinkActive="router-link-active">Skapa annons </a></li>
 
 
 
       <span> | </span>
       <li *ngIf="!loggedIn"><a [routerLink]="['/login']" routerLinkActive="router-link-active">Logga In</a></li>
 
-      <li *ngIf="loggedIn" (click)="logout()"><a id="logout">Log out</a></li>
+      <li *ngIf="loggedIn" (click)="logout()"><a id="logout">Logga ut</a></li>
 
     </ul>
   </div>

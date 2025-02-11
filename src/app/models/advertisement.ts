@@ -3,7 +3,7 @@ export class Advertisement {
   ad_telefon: string;
   ad_postnummer: string;
   ad_ort: string;
-  ad_id: number;
+  id: string;
   email: string;
   ad_price: number;
   ad_title: string;

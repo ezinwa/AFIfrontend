@@ -3,10 +3,19 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-
+  align-items: center;
 
 }
-
+.t{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 .center h2 {
   margin: auto;
+
 }
+

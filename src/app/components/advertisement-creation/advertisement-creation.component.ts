@@ -98,5 +98,7 @@ export class AdvertisementCreationComponent implements OnInit {
         console.log("new Ad created")
       }
     )
+    window.location.reload();
+
   }
 }

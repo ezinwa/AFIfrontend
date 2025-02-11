@@ -26,6 +26,9 @@ export class AdvertisementService {
   createAdvertisement(Userobj: Advertisement): Observable<any> {
     return this.httpcli.post<Advertisement>(`${this.ad_api_endpoint}/createAd`, Userobj)
   }
+  updateAdvertisement(ad: Advertisement): Observable<any> {
+    return this.httpcli.put<Advertisement>(`${this.ad_api_endpoint}/update`, ad);
+  }
 
   getAdvertisementsFromServer() {
     return this.httpcli
@@ -60,6 +63,10 @@ export class AdvertisementService {
   }
   viewAdvertisement(): Observable<Advertisement[]> {
     return this.adSubject;
+  }
+
+  deleteAd(id: string): Observable<any> {
+    return this.httpcli.request('delete', `${this.ad_api_endpoint}/delete`, { body: { id } });
   }
 
 }
