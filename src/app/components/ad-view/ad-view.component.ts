@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Advertisement } from 'src/app/models/advertisement';
 import { AdvertisementService } from 'src/app/service/advertisement.service';
+import { AdUpdateDialogComponent } from '../ad-update-dialog/ad-update-dialog.component';
 
 @Component({
   selector: 'app-ad-view',
@@ -10,7 +12,7 @@ import { AdvertisementService } from 'src/app/service/advertisement.service';
 export class AdViewComponent implements OnInit {
   ads: Array<Advertisement> = [];
 
-  constructor(private service: AdvertisementService) { }
+  constructor(private service: AdvertisementService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAdvertisementsFromServer();
@@ -22,6 +24,14 @@ export class AdViewComponent implements OnInit {
       }
     )
 
+  }
+  openDialog(ad: Advertisement) {
+    const dialogRef = this.dialog.open(AdUpdateDialogComponent, {
+      data: ad
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result:', result);
+    });
   }
 
 }

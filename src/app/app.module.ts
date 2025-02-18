@@ -32,6 +32,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserViewComponent } from './components/user-view/user-view.component';
 import { AdvertisementCreationComponent } from './components/advertisement-creation/advertisement-creation.component';
 import { MyAdsComponent } from './components/my-ads/my-ads.component';
+import { AdUpdateDialogComponent } from './components/ad-update-dialog/ad-update-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -45,10 +47,12 @@ import { MyAdsComponent } from './components/my-ads/my-ads.component';
     UserCardComponent,
     UserViewComponent,
     AdvertisementCreationComponent,
-    MyAdsComponent
+    MyAdsComponent,
+    AdUpdateDialogComponent
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     HttpClientModule,
     NoopAnimationsModule,

@@ -1,0 +1,10 @@
+/* Center content horizontally and vertically */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: column;
+}
+div{
+  margin: 10px;
+}

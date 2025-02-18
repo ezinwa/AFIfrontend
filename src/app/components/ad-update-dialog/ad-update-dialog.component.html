@@ -1,0 +1,31 @@
+<h2>Update Ad</h2>
+<form class="container" [formGroup]="updateAdForm"  (ngSubmit)="updateAd()">
+  <div>
+    <mat-form-field>
+    <input matInput placeholder ="titel" type="text" id="title" name="title" formControlName="ad_title">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+    <input matInput placeholder="beskrivning" type="text" id="beskrivning" formControlName="ad_content" name="description">
+    </mat-form-field>
+    </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="pris" type="number" id="price" name="price" formControlName="ad_price">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="postnummer" type="number" id="postnummer" name="postnummer" formControlName="ad_postnummer">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Seller" type="text" id="seller" name="seller" formControlName="ad_seller">
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit">Update</button>
+  </div>
+</form>

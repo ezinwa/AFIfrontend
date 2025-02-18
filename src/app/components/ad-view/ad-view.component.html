@@ -2,13 +2,13 @@
 
 
   <h2>ADVERTISEMENTS</h2>
+  <h1>USERS</h1>
   <div>
-    <div>
-      <h1>USERS</h1>
-    </div>
-    <div class="disp"></div>
     <div *ngFor="let ad of ads">
-      <app-ad-card [ad]="ad"></app-ad-card>
+      <div class="center">
+        <app-ad-card [ad]="ad"></app-ad-card>
+        <button mat-raised-button color="accent" class="btn" (click)="openDialog(ad)">Open Dialog</button>
+      </div>
     </div>
   </div>
 </div>
