@@ -8,5 +8,5 @@ export class Advertisement {
   ad_price: number;
   ad_title: string;
   ad_content: string;
-  ad_sellingCost: string;
+  ad_sellingPrice: string;
 }
